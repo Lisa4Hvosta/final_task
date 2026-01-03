@@ -1,301 +1,457 @@
+/* =========================================== */
+/* ОБЩИЕ СТИЛИ (для всех страниц и устройств) */
+/* =========================================== */
+
 * {
 	font-family: 'Montserrat', sans-serif;
+	box-sizing: border-box;
 }
 
 body {
 	width: 100%;
-	margin: 0px;
-	background-image: url(../img/bg.jpg);
-	background-repeat: repeat-y no-repeat;
+	margin: 0;
+	min-height: 100vh;
+	background-repeat: no-repeat;
 	background-size: cover;
 	background-position: center;
 	background-attachment: fixed;
 }
 
-.icons>a {
-	text-decoration: none;
+/* Фон для index.html */
+body:not([class]) {
+	background-image: url(../img/bg.jpg);
+}
+
+/* Фон для вложенных страниц (cmd.html, git.html, mac.html) */
+/*body > .card {
+	background-image: url(../img/bg.jpg);
+}*/
+
+/* ===== ОБЩИЕ КОМПОНЕНТЫ ===== */
+
+/* Карточка (общие свойства) */
+.card {
+	background: rgba(68, 36, 131, 0.85);
+	backdrop-filter: blur(5px);
+	box-shadow: 
+			0 10px 20px rgba(0, 0, 0, 0.52),     /* Тень снизу */
+			0 6px 6px rgba(0, 0, 0, 0.56),       /* Ближняя тень */
+			0 0 0 1px rgba(255, 255, 255, 0.85), /* Внешняя рамка */
+			inset 0 1px 0 rgba(255, 255, 255, 0.5); /* Верхний свет */
+	
+	border: 1px solid rgba(255, 255, 255, 0.9);
+	transition: all 0.15s ease;
+	border-radius: 10px;
+	padding: 0;
+}
+
+.card:hover {
+	box-shadow: 
+			0 15px 30px rgba(0, 0, 0, 0.38),
+			0 8px 8px rgba(0, 0, 0, 0.39),
+			0 0 0 1px rgba(255, 255, 255, 0.95),
+			inset 0 1px 0 rgba(255, 255, 255, 0.7);
+	transform: translateY(-2px);
+}
+
+/* Изображение на главной */
+img.center {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	border: 15px solid white;
+	border-radius: 45px;
+}
+
+/* Разделитель */
+hr {
+	width: 93%;
+	height: 2px;
+	background-color: white;
+	border: 0;
+	margin: 20px auto;
+}
+
+/* Заголовок */
+.name {
+	text-align: center;
+	color: gainsboro;
+	text-transform: capitalize;
+	margin-bottom: auto;
+}
+
+/* Подзаголовок */
+.subtitle {
+	text-align: center;
 	color: darkgray;
 }
 
-.location>a {
+/* Иконки (если будут использоваться) */
+.icons {
+	text-align: center;
+	color: darkgray;
+	margin-bottom: 40px;
+}
+
+/* Стили для кнопки в футере - адаптивная ширина */
+footer .location {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+	max-width: 600px; /* Ограничиваем максимальную ширину */
+	width: auto; /* Автоматическая ширина по содержимому */
+}
+
+/* Кнопки-ссылки */
+.location {
+	text-align: center;
+	color: white;
+	display: block;
+	background-color: rgba(175, 133, 255, 1);
+	padding: 10px;
+	margin-left: 7%;
+	margin-right: 7%;
+	border-radius: 8px;
+}
+
+.location > a {
 	text-decoration: none;
 	color: white;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	width: 100%;
+	height: 100%;
 }
 
 .location:hover {
 	box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
 }
 
-
-/*---------- Responsive Grid ---------------*/
-
-@media screen and (min-width: 1001px) {
-	.card {
-		margin-left: 32%;
-		margin-top: 2%;
-		padding: 0px;
-		background-color: white;
-		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-		transition: 0.3s;
-		width: 35%;
-		border-radius: 5px;
-	}
-	.card:hover {
-		box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 1);
-	}
-	img {
-		border: 20px solid white;
-		border-radius: 50%;
-		margin-top: 8%;
-		margin-bottom: -15% !important;
-		width: 30%;
-	}
-	.name {
-		text-align: center;
-		font-size: 2.8em;
-		color: gainsboro;
-		margin-top: 15%;
-		margin-bottom: auto;
-		text-transform: capitalize;
-	}
-	hr {
-		width: 93%;
-		height: 2px;
-		background-color: gainsboro;
-		border: 0px;
-	}
-	.subtitle {
-		text-align: center;
-		font-size: 1.5em;
-		color: darkgray;
-	}
-	.icons {
-		font-size: 18px;
-		text-align: center;
-		margin-right: 0px;
-		margin-left: 0px;
-		color: darkgray;
-		margin-bottom: 40px;
-	}
-	.location {
-		text-align: center;
-		color: white;
-		font-size: 1.5em;
-		display: block;
-		background-color: rgba(175,133,255,1);
-		padding: 10px;
-		margin-left: 7%;
-		margin-right: 7%;
-		border-radius: 8px;
-	}
-}
-
-@media (min-width: 100px) and (max-width: 728px) and (orientation:portrait) {
-	body {
-		width: 100%;
-		margin: 0px;
-		background: url(../img/bg.jpg) fixed no;
-		overflow-x: hidden;
-	}
-	hr {
-		width: 93%;
-		height: 2px;
-		background-color: gainsboro;
-		border: 0px;
-	}
-	.card {
-		margin-top: 10%;
-		margin-left: 2%;
-		margin-right: 0px;
-		background-color: white;
-		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-		transition: 0.3s;
-		width: 95%;
-		border-radius: 5px;
-	}
-	.card:hover {
-		box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 1);
-	}
-	img {
-		border: 15px solid white;
-		margin-bottom: -20% !important;
-		border-radius: 50%;
-		width: 33%;
-	}
-	.name {
-		padding-right: 4px;
-		padding-left: 4px;
-		text-align: center;
-		font-size: 2.5em;
-		color: gainsboro;
-		margin-top: 16%;
-		margin-bottom: auto;
-		text-transform: capitalize;
-	}
-	.subtitle {
-		text-align: center;
-		font-size: 1.2em;
-		color: darkgray;
-	}
-	.icons {
-		font-size: 11px;
-		text-align: center;
-		margin-right: 0px;
-		margin-left: 0px;
-		color: darkgray;
-		margin-bottom: 40px;
-	}
-	.location {
-		text-align: center;
-		color: white;
-		font-size: 0.8em;
-		display: block;
-		background-color: rgba(175,133,255,1);
-		padding: 10px;
-		margin-left: 7%;
-		margin-right: 7%;
-		border-radius: 8px;
-	}
-}
-
-@media (min-width: 100px) and (max-width: 728px) and (orientation:landscape) {
-	body {
-		width: 100%;
-		margin: 0px;
-		background: url(../img/bg.jpg) fixed no;
-		overflow-x: hidden;
-	}
-	hr {
-		width: 93%;
-		height: 2px;
-		background-color: gainsboro;
-		border: 0px;
-	}
-	.card {
-		margin-top: 6%;
-		margin-left: 9%;
-		margin-right: 0px;
-		background-color: white;
-		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-		transition: 0.3s;
-		width: 80%;
-		border-radius: 5px;
-	}
-	.card:hover {
-		box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 1);
-	}
-	img {
-		border: 15px solid white;
-		margin-bottom: -15% !important;
-		border-radius: 50%;
-		width: 25%;
-	}
-	.name {
-		padding-right: 4px;
-		padding-left: 4px;
-		text-align: center;
-		font-size: 2.8em;
-		color: gainsboro;
-		margin-top: 16%;
-		margin-bottom: auto;
-		text-transform: capitalize;
-	}
-	.subtitle {
-		text-align: center;
-		font-size: 1.9em;
-		color: darkgray;
-	}
-	.icons {
-		font-size: 18px;
-		text-align: center;
-		margin-right: 0px;
-		margin-left: 0px;
-		color: darkgray;
-		margin-bottom: 40px;
-	}
-	.location {
-		text-align: center;
-		color: white;
-		font-size: 1.5em;
-		display: block;
-		background-color: rgba(175,133,255,1);
-		padding: 10px;
-		margin-left: 7%;
-		margin-right: 7%;
-		border-radius: 8px;
-	}
-}
-
-@media only screen and (min-width: 728px) and (max-width: 1000px) {
-	body {
-		width: 100%;
-		margin: 0px;
-		background: url(../img/bg.jpg) fixed no;
-		overflow-x: hidden;
-	}
-	hr {
-		width: 93%;
-		height: 2px;
-		background-color: gainsboro;
-		border: 0px;
-	}
-	.card {
-		margin-top: 4%;
-		margin-left: 13%;
-		align-content: center;
-		background-color: white;
-		box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
-		transition: 0.3s;
-		width: 75%;
-		border-radius: 5px;
-	}
-	.card:hover {
-		box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 1);
-	}
-	img {
-		border: 15px solid white;
-		margin-bottom: -18% !important;
-		border-radius: 50%;
-		width: 30%;
-	}
-	.name {
-		text-align: center;
-		font-size: 2.5em;
-		color: gainsboro;
-		margin-top: 16%;
-		margin-bottom: auto;
-		text-transform: capitalize;
-	}
-	.subtitle {
-		text-align: center;
-		font-size: 2em;
-		color: darkgray;
-	}
-	.icons {
-		font-size: 15px;
-		text-align: center;
-		margin-right: 0px;
-		margin-left: 0px;
-		color: darkgray;
-		margin-bottom: 40px;
-	}
-	.location {
-		text-align: center;
-		color: white;
-		font-size: 1.8em;
-		display: block;
-		background-color: rgba(175,133,255,1);
-		padding: 10px;
-		margin-left: 7%;
-		margin-right: 7%;
-		border-radius: 8px;
-	}
-}
-
-
-/*---------- Responsive Grid Ends ---------------*/
+/* Подвал */
 footer {
 	text-align: center;
 	color: white;
-	font-size: 1.2em
+	font-size: 1.2em;
+	margin-top: 20px;
+}
+
+/* ===== СТИЛИ ДЛЯ СТРАНИЦ С КОМАНДАМИ (cmd.html, git.html, mac.html) ===== */
+
+/* Подзаголовок на страницах команд */
+.card > .subtitle {
+	padding-top: 20px;
+}
+
+/* Заголовки разделов на страницах команд */
+.card h3 {
+	text-align: center;
+	color: rgba(175, 133, 255, 1);
+	margin: 25px 7% 15px 7%;
+	padding-bottom: 10px;
+	border-bottom: 2px solid gainsboro;
+}
+
+/* Списки команд */
+.card ul {
+	margin: 0 7% 20px 7%;
+	padding-left: 0;
+	list-style-type: none;
+}
+
+.card li {
+	margin-bottom: 12px;
+	padding: 12px 15px;
+	background-color: #f9f9f9;
+	border-radius: 8px;
+	border-left: 4px solid rgba(175, 133, 255, 1);
+	line-height: 1.5;
+}
+
+/* Выделение команд */
+.card li strong,
+.card li code {
+	color: rgba(148, 106, 223, 5);
+	font-family: 'Arial Narrow Bold', sans-serif;
+	font-size: 15px;
+	font-weight: 900;
+}
+
+/* =========================================== */
+/* МЕДИА-ЗАПРОСЫ (от большего к меньшему) */
+/* =========================================== */
+
+/* ДЕСКТОП (большие экраны, > 1000px) */
+@media screen and (min-width: 1001px) {
+	.card {
+			margin-left: 32%;
+			margin-top: 2%;
+			width: 35%;
+	}
+	
+	/* Главная страница */
+	img.center {
+			width: 55%;
+			margin-top: 8%;
+			margin-bottom: -15% !important;
+			border-radius: 65px;
+			border-width: 20px;
+	}
+	
+	.name {
+			font-size: 2.8em;
+			margin-top: 15%;
+	}
+	
+	.subtitle {
+			font-size: 1.5em;
+	}
+	
+	.icons {
+			font-size: 18px;
+	}
+	
+	.location {
+			font-size: 1.5em;
+	}
+
+	/* Делаем адаптивную ширину в зависимости от экрана */
+	footer .location {
+		width: 35%; /* Как у карточки */
+		min-width: 300px;
+		max-width: 400px;
+	}
+	
+	/* Страницы команд */
+	.card > .subtitle {
+			font-size: 1.8em;
+	}
+	
+	.card h3 {
+			font-size: 1.5em;
+	}
+}
+
+/* ПЛАНШЕТЫ (728px - 1000px) */
+@media (min-width: 728px) and (max-width: 1000px) {
+	body {
+			background: url(../img/bg.jpg) fixed no-repeat;
+	}
+	
+	.card {
+			margin-top: 4%;
+			margin-left: 13%;
+			width: 75%;
+	}
+	
+	img.center {
+			width: 30%;
+			margin-bottom: -18% !important;
+	}
+	
+	.name {
+			font-size: 2.5em;
+			margin-top: 16%;
+	}
+	
+	.subtitle {
+			font-size: 2em;
+	}
+	
+	.icons {
+			font-size: 15px;
+	}
+	
+	.location {
+			font-size: 1.8em;
+	}
+	/* Делаем адаптивную ширину в зависимости от экрана */
+	footer .location {
+		width: 75%;
+		max-width: 600px;
+	}
+	
+	/* Страницы команд */
+	.card > .subtitle {
+			font-size: 1.7em;
+			padding-top: 15px;
+	}
+	
+	.card h3 {
+			font-size: 1.4em;
+			margin: 20px 5% 12px 5%;
+	}
+	
+	.card ul {
+			margin: 0 5% 15px 5%;
+	}
+}
+
+/* МОБИЛЬНЫЕ - АЛЬБОМНАЯ (до 728px, landscape) */
+@media (min-width: 100px) and (max-width: 728px) and (orientation: landscape) {
+	body {
+			background: url(../img/bg.jpg) fixed no-repeat;
+	}
+	
+	.card {
+			margin-top: 6%;
+			margin-left: 9%;
+			width: 80%;
+	}
+	
+	img.center {
+			width: 25%;
+			margin-bottom: -15% !important;
+	}
+	
+	.name {
+			font-size: 2.8em;
+			margin-top: 16%;
+			padding: 0 4px;
+	}
+	
+	.subtitle {
+			font-size: 1.9em;
+	}
+	
+	.icons {
+			font-size: 18px;
+	}
+	
+	.location {
+			font-size: 1.5em;
+	}
+
+	/* Делаем адаптивную ширину в зависимости от экрана */
+	footer .location {
+		width: 95%;
+		max-width: 350px;
+		min-width: 250px;
+	}
+	
+	/* Страницы команд */
+	.card > .subtitle {
+			font-size: 1.6em;
+	}
+	
+	.card h3 {
+			font-size: 1.3em;
+	}
+	
+	.card li {
+			padding: 10px 12px;
+			font-size: 0.95em;
+	}
+}
+
+/* МОБИЛЬНЫЕ - ПОРТРЕТНАЯ (до 728px, portrait) */
+@media (max-width: 728px) and (orientation: portrait) {
+	body {
+			background: url(../img/bg.jpg) fixed no-repeat;
+	}
+	
+	.card {
+			margin-top: 10%;
+			margin-left: 2%;
+			width: 95%;
+	}
+	
+	img.center {
+			width: 33%;
+			margin-bottom: -20% !important;
+	}
+	
+	.name {
+			font-size: 2.5em;
+			margin-top: 16%;
+			padding: 0 4px;
+	}
+	
+	.subtitle {
+			font-size: 1.2em;
+	}
+	
+	.icons {
+			font-size: 11px;
+	}
+	
+	.location {
+			font-size: 0.8em;
+	}
+
+	/* Делаем адаптивную ширину в зависимости от экрана */
+	footer .location {
+		width: 95%;
+		max-width: 350px;
+		min-width: 250px;
+	}
+	
+	/* Страницы команд */
+	.card > .subtitle {
+			font-size: 1.5em;
+			padding-top: 10px;
+	}
+	
+	.card h3 {
+			font-size: 1.2em;
+			margin: 15px 4% 10px 4%;
+	}
+	
+	.card ul {
+			margin: 0 4% 10px 4%;
+	}
+	
+	.card li {
+			padding: 8px 10px;
+			font-size: 0.9em;
+	}
+}
+
+/* ОЧЕНЬ МАЛЕНЬКИЕ ЭКРАНЫ (до 360px) */
+@media (max-width: 360px) {
+	.card {
+			width: 98%;
+			margin: 5% auto 0 auto;
+	}
+	
+	img.center {
+			width: 40%;
+			border-width: 10px;
+	}
+	
+	.name {
+			font-size: 2em;
+	}
+	
+	.subtitle {
+			font-size: 1em;
+	}
+	
+	.location {
+			font-size: 0.7em;
+			padding: 8px;
+			margin-left: 5%;
+			margin-right: 5%;
+	}
+
+	/* Делаем адаптивную ширину в зависимости от экрана */
+	footer .location {
+		width: 98%;
+		max-width: 300px;
+		min-width: 200px;
+	}
+	
+	/* Страницы команд */
+	.card > .subtitle {
+			font-size: 1.3em;
+	}
+	
+	.card h3 {
+			font-size: 1.1em;
+	}
+	
+	.card li {
+			padding: 6px 8px;
+			font-size: 0.85em;
+	}
 }

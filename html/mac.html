@@ -1,10 +1,10 @@
 <!DOCTYPE html>
 <html>
    <head>
-      <title>Терминал MaOS</title>
+      <title>Терминал MaсOS - Portal for QA</title>
       <link rel="stylesheet" type="text/css" href="../css/style.css">
       <link rel="stylesheet" type="text/css" href="../css/font-awesome.css">
-      <link rel="shortcut icon" href="../img/fav.ico" type="image/x-icon">
+      <link rel="shortcut icon" href="../img/ava.png" type="image/x-icon">
       <link href="https://fonts.googleapis.com/css?family=Montserrat:700" rel="stylesheet">
       <meta charset="utf-8">
       <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -13,12 +13,29 @@
       <!--Card-->
       <div class="card animated fadeIn">
          <p class="subtitle">Терминал MacOS</p>
+         <h3 id="rt-m0">Навигация по файловой системе</h3>
          <ul>
-            <li>ls - расшифровывается как "List files in the directory", что переводится как "перечислить все файлы в папке" или "вывести на экран список файлов в папке".</li>
-            <li>cd - расшифровывается как "Change directory", что переводится как "сменить папку" или "перейти в другую папку".</li>
-            <li>pwd - расшифровывается как "Present working directory", что переводится как "текущая рабочая директория". То есть команда pwd показывает, в какой сейчас папке мы находимся. </li>
-            <li>mv - расшифровывается как "Make directory", что переводится как "создать папку".</li>
-            <li>mkdir - расфшифровывается как"Move", что переводится как "переместить", "передвинуть". С помощью нее можно переместить, переименовать или удалить файл/</li>
+            <li><strong>ls</strong> – Показать содержимое текущего каталога</li>
+            <li><strong>cd путь</strong> – Перейти в указанный каталог</li>
+            <li><strong>pwd</strong> – Показать текущий рабочий каталог</li>
+            <li><strong>find путь -name "имя"</strong> – Найти файлы по имени</li>
+         </ul>
+         
+         <h3 id="rt-m1">Работа с файлами и папками</h3>
+         <ul>
+            <li><strong>mkdir имя</strong> – Создать новую папку</li>
+            <li><strong>cp источник цель</strong> – Копировать файлы</li>
+            <li><strong>mv источник цель</strong> – Переместить или переименовать файлы</li>
+            <li><strong>rm файл</strong> – Удалить файл</li>
+            <li><strong>rm -r папка</strong> – Удалить папку рекурсивно</li>
+         </ul>
+         
+         <h3 id="rt-m2">Просмотр и редактирование</h3>
+         <ul>
+            <li><strong>cat файл</strong> – Показать содержимое файла</li>
+            <li><strong>nano файл</strong> – Открыть файл в текстовом редакторе nano</li>
+            <li><strong>grep "текст" файл</strong> – Найти текст в файле</li>
+            <li><strong>chmod права файл</strong> – Изменить права доступа к файлу</li>
          </ul>
       </div>
       <!--footer-->
